@@ -1,0 +1,18 @@
+{
+	"source" : "builtin",
+	"applications": [
+		{
+			"app_key": "tr1ngledev.4dvr",
+			"action_manifest_path": "action-manifest.json",
+			"launch_type": "binary",
+			"binary_path_windows": "..\\..\\4D Miner.exe",
+			"image_path": "assets\\textures\\header.png",
+			"strings": {
+				"en_us": {
+					"name": "4DVR",
+					"description": "VR mod for 4D Miner"
+				}
+			}
+		}
+	]
+}

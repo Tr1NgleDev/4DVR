@@ -1,0 +1,15 @@
+{
+	id: "tr1ngledev.4dvr",
+	name: "4DVR",
+	author: "Tr1NgleDev",
+	descriptionFile: "description.txt",
+	version: "0.9 [BETA]",
+	gameVersion: "0.2.1.4",
+	modDLL: "4DVR.dll",
+	externalDLLs: [
+		"openvr_api.dll"
+	],
+	dependencies: {
+		"tr1ngledev.4dkeybinds": "? after >= 1.12",
+	},
+}

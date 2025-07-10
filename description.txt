@@ -1,0 +1,26 @@
+Adds VR support to 4D Miner!
+
+----------------------------
+This mod is still in BETA.
+----------------------------
+
+----------------------
+Features:
+----------------------
+- Multiplayer Support ("Sync" mod recommended for a better experience, preferably server-side aswell)
+- NON-VR Mode so that Flatscreen players can see VR players in Multiplayer! (also so that you don't have to toggle the mod on/off ig)
+- W(-Depth) Perception! (OFF by default)
+- Quick Actions Menu
+- 4DKeyBinds Support for Controller Bindings AND in the Quick Actions Menu
+- Breaking Blocks and Attacking Entities by punching
+- VR-ified Tutorial Section! ( you can spin forg :D )
+
+----------------------
+Recommended Servers:
+----------------------
+- 4d4t.org
+
+------------------------------------
+Apparently sponsored by Mashpoe Dev
+lol
+------------------------------------

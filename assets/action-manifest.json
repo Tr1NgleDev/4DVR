@@ -1,0 +1,151 @@
+{
+	"default_bindings": [
+		{
+			"controller_type": "oculus_touch",
+			"binding_url": "default-bindings.json"
+		}
+	],
+	"actions": [
+		{
+			"name": "/actions/main/in/Movement",
+			"type": "vector2"
+		},
+		{
+			"name": "/actions/main/in/Look4D",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Use",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Break",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Crouch",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Sprint",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Jump",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Inventory",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/Pause",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/ItemUp",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/ItemDown",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/StrafeW",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/StrafeWP",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/in/QuickActions",
+			"type": "boolean"
+		},
+
+		{
+			"name": "/actions/menu/in/Press",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/menu/in/Action",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/menu/in/Scroll",
+			"type": "vector2"
+		},
+
+		{
+			"name": "/actions/tutorial/in/Move",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/tutorial/in/DragRotate",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/tutorial/in/ForgMoveLeft",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/tutorial/in/ForgMoveRight",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/tutorial/in/ForgRotateLeft",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/tutorial/in/ForgRotateRight",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/tutorial/in/ForgJump",
+			"type": "boolean"
+		},
+		{
+			"name": "/actions/main/out/LeftHaptics",
+			"type": "vibration"
+		},
+		{
+			"name": "/actions/main/out/RightHaptics",
+			"type": "vibration"
+		}
+	],
+	"localization": [
+		{
+			"language_tag": "en_us",
+
+			"/actions/main" : "4DVR In-Game Actions",
+			"/actions/main/in/Movement": "Movement",
+			"/actions/main/in/Look4D": "Look 4D (Hyperplane Rotation)",
+			"/actions/main/in/Use": "Place/Use",
+			"/actions/main/in/Break": "Break/Attack",
+			"/actions/main/in/Crouch": "Crouch",
+			"/actions/main/in/Sprint": "Sprint",
+			"/actions/main/in/Jump": "Jump",
+			"/actions/main/in/Inventory": "Open Inventory",
+			"/actions/main/in/Pause": "Pause",
+			"/actions/main/in/ItemUp": "Change Item Up",
+			"/actions/main/in/ItemDown": "Change Item Down",
+			"/actions/main/in/StrafeW": "Strafe -W",
+			"/actions/main/in/StrafeWP": "Strafe +W",
+			"/actions/main/in/QuickActions": "Quick Actions",
+
+			"/actions/menu": "4DVR Menu Actions",
+			"/actions/menu/in/Press": "Press (LMB)",
+			"/actions/menu/in/Action": "Action (RMB)",
+			"/actions/menu/in/Scroll": "Scroll",
+
+			"/actions/tutorial": "4DVR Tutorial Actions",
+			"/actions/tutorial/in/Move": "Move",
+			"/actions/tutorial/in/DragRotate": "Drag Rotate",
+			"/actions/tutorial/in/ForgMoveLeft": "Forg Move Left",
+			"/actions/tutorial/in/ForgMoveRight": "Forg Move Right",
+			"/actions/tutorial/in/ForgRotateLeft": "Forg Rotate Left",
+			"/actions/tutorial/in/ForgRotateRight": "Forg Rotate Right",
+			"/actions/tutorial/in/ForgJump": "Forg Jump"
+		}
+	]
+}
