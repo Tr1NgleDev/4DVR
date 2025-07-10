@@ -16,10 +16,11 @@ Adds VR support (through SteamVR) to 4D Miner!
 - Breaking Blocks and Attacking Entities by punching
 - VR-ified Tutorial Section! ( you can spin forg :D )
 
-## Known Bugs:
+## Known Bugs/Problems:
 - The 4DModLoader Mod Menu does not work properly. (i don't think i can fix that, atleast not yet)
 - Some custom menus might not work properly or work partially, can be fixed using the [API](/4DVR.h).
 - The Compass item does not render properly in the hand, and overlays the coordinates text on your eyes. (plan to fix)
+- No Left-Handed Mode (yet)
 
 ## Things i won't be doing:
 - OpenXR
