@@ -3,7 +3,7 @@
 	name: "4DVR",
 	author: "Tr1NgleDev",
 	descriptionFile: "description.txt",
-	version: "0.9 [BETA]",
+	version: "0.9.1 [BETA]",
 	gameVersion: "0.2.1.4",
 	modDLL: "4DVR.dll",
 	externalDLLs: [

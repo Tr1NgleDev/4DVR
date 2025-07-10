@@ -1607,6 +1607,7 @@ inline static EntityPlayer* lastEP;
 using ps = PlayerSkin;
 $hook(void, EntityPlayer, render, const World* world, const m4::Mat5& MV, bool glasses)
 {
+#ifndef NONVR
 	if (self->player != &StateGame::instanceObj.player && StateSettings::instanceObj.nametags)
 	{
 		static FontRenderer3D font3D{ ResourceManager::get("pixelfont.png"), ShaderManager::get("4dvr_textShader") };
@@ -1637,6 +1638,7 @@ $hook(void, EntityPlayer, render, const World* world, const m4::Mat5& MV, bool g
 		font3D.render(ToMat4(MV3D));
 		glEnable(GL_DEPTH_TEST);
 	}
+#endif
 
 	if (!entityPlayerData.contains(self))
 	{
@@ -1793,6 +1795,7 @@ $hookStatic(void, main_cpp, normalizeMat5, Mat5& mat)
 	}
 }
 
+#ifndef NONVR
 $exec
 {
 	// remove nametag rendering
@@ -1801,6 +1804,7 @@ $exec
 	memset(newBytes, 0x90, sizeof(newBytes));
 	patchMemory(getFuncAddr((int)Func::EntityPlayer::render) + 0x50D, newBytes, sizeof(newBytes));
 }
+#endif
 
 extern "C" __declspec(dllexport) bool isEntityPlayerInVR(fdm::EntityPlayer* entity)
 {
