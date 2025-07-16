@@ -260,7 +260,6 @@ $hook(void, Player, update, World* world, double dt, EntityPlayer* entityPlayer)
 	}
 
 	bool leftMouseDown = getActionBool(Actions.Break);
-	printf("%i;%i\n", prevLMDown, leftMouseDown);
 	if (leftMouseDown)
 	{
 		if (afterPunch)
