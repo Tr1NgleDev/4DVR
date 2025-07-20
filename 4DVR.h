@@ -606,4 +606,40 @@ namespace VR
 			(fdm::getModFuncPointer(id, "vrStateRender"));
 		return func(s, vrRender, uiRender);
 	}
+
+	inline m4::Mat5 getEntityPlayerHandMat(const fdm::EntityPlayer* entity, Controller controller)
+	{
+		if (!isEntityPlayerInVR(entity)) return { 1 };
+		m4::Mat5 result{ 1 };
+		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, Controller, m4::Mat5&)>
+			(fdm::getModFuncPointer(id, "getEntityPlayerHandMat"));
+		func(entity, controller, result);
+		return result;
+	}
+	inline m4::Mat5 getEntityPlayerHeadMat(const fdm::EntityPlayer* entity)
+	{
+		if (!isEntityPlayerInVR(entity)) return { 1 };
+		m4::Mat5 result{ 1 };
+		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, m4::Mat5&)>
+			(fdm::getModFuncPointer(id, "getEntityPlayerHeadMat"));
+		func(entity, result);
+		return result;
+	}
+	inline glm::vec4 getEntityPlayerHeadPos(const fdm::EntityPlayer* entity)
+	{
+		if (!isEntityPlayerInVR(entity)) return glm::vec4{ 0 };
+		glm::vec4 result{ 0 };
+		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, glm::vec4&)>
+			(fdm::getModFuncPointer(id, "getEntityPlayerHeadPos"));
+		func(entity, result);
+		return result;
+	}
+	// height / Player::HEIGHT
+	inline float getEntityPlayerHeightRatio(const fdm::EntityPlayer* entity)
+	{
+		if (!isEntityPlayerInVR(entity)) return 1.0f;
+		static auto func = reinterpret_cast<float(__stdcall*)(const fdm::EntityPlayer*)>
+			(fdm::getModFuncPointer(id, "getEntityPlayerHeightRatio"));
+		return func(entity);
+	}
 }

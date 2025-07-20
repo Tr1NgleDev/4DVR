@@ -148,7 +148,7 @@ $hook(void, Player, hitTargetBlock, World* world)
 $hook(void, Player, update, World* world, double dt, EntityPlayer* entityPlayer)
 {
 	// check if `self` is the local player. if not then dont do anything
-	if (self != &StateGame::instanceObj.player) return original(self, world, dt, entityPlayer);;
+	if (self != &StateGame::instanceObj.player) return original(self, world, dt, entityPlayer);
 	//handleEvents();
 
 	double time = glfwGetTime();
@@ -1805,9 +1805,47 @@ $exec
 }
 #endif
 
-extern "C" __declspec(dllexport) bool isEntityPlayerInVR(fdm::EntityPlayer* entity)
+extern "C"
 {
-	if (!entity) return false;
-	if (entityPlayerData.contains(entity)) return true;
-	return false;
+	__declspec(dllexport) bool isEntityPlayerInVR(fdm::EntityPlayer* entity)
+	{
+		if (!entity) return false;
+		if (entityPlayerData.contains(entity)) return true;
+		return false;
+	}
+	__declspec(dllexport) void getEntityPlayerHandMat(fdm::EntityPlayer* entity, VR::Controller controller, m4::Mat5& result)
+	{
+		if (!entity) return;
+		if (!entityPlayerData.contains(entity)) return;
+		const auto& data = entityPlayerData.at(entity);
+
+		result =
+			controller == VR::CONTROLLER_LEFT ? data.handL : data.handR;
+	}
+	__declspec(dllexport) void getEntityPlayerHeadMat(fdm::EntityPlayer* entity, m4::Mat5& result)
+	{
+		if (!entity) return;
+		if (!entityPlayerData.contains(entity)) return;
+		const auto& data = entityPlayerData.at(entity);
+
+		result =
+			data.head;
+	}
+	__declspec(dllexport) void getEntityPlayerHeadPos(fdm::EntityPlayer* entity, glm::vec4& result)
+	{
+		if (!entity) return;
+		if (!entityPlayerData.contains(entity)) return;
+		const auto& data = entityPlayerData.at(entity);
+
+		result =
+			data.headPos;
+	}
+	__declspec(dllexport) float getEntityPlayerHeightRatio(fdm::EntityPlayer* entity)
+	{
+		if (!entity) return 1.0f;
+		if (!entityPlayerData.contains(entity)) return 1.0f;
+		const auto& data = entityPlayerData.at(entity);
+
+		return data.heightRatio;
+	}
 }
