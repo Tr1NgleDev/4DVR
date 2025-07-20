@@ -112,7 +112,7 @@ namespace VR
 	};
 	/**
 	 * Has to be called BEFORE StateIntro::init() (so, in an $exec for example)
-	 * 
+	 *
 	 * Adds an action for Steam VR Input to bind on controllers
 	 * @param[in] id Internal identifier for the action.
 	 * @param[in] name The Display Name shown to the user in the Steam VR Input Bindings Menu.
@@ -150,7 +150,7 @@ namespace VR
 	};
 	/**
 	 * Has to be called BEFORE StateIntro::init() (so, in an $exec for example)
-	 * 
+	 *
 	 * Binds a bool ActionHandle to a Button Interaction.
 	 * @param[in] action The action.
 	 * @param[in] controller The controller.
@@ -167,7 +167,7 @@ namespace VR
 	}
 	/**
 	 * Has to be called BEFORE StateIntro::init() (so, in an $exec for example)
-	 * 
+	 *
 	 * Binds a vec2/float ActionHandle to a Joystick.
 	 * @param[in] action The action.
 	 * @param[in] controller The controller.
@@ -196,7 +196,7 @@ namespace VR
 	};
 	/**
 	 * Has to be called BEFORE StateIntro::init() (so, in an $exec for example)
-	 * 
+	 *
 	 * Binds 4 bool ActionHandles to a Joystick.
 	 * @param[in] actions The actions.
 	 * @param[in] controller The controller.
@@ -219,7 +219,7 @@ namespace VR
 	};
 	/**
 	 * Has to be called BEFORE StateIntro::init() (so, in an $exec for example)
-	 * 
+	 *
 	 * Binds a float ActionHandle to a Button Interaction.
 	 * @param[in] action The action.
 	 * @param[in] controller The controller.
@@ -268,7 +268,7 @@ namespace VR
 			(fdm::getModFuncPointer(id, "isControllerConnected"));
 		return func(controller);
 	}
-	
+
 	inline glm::mat4 getHead()
 	{
 		if (!isLoaded()) return glm::mat4{ 1 };
@@ -288,7 +288,7 @@ namespace VR
 		func(result);
 		return result;
 	}
-	
+
 	inline glm::mat4 getController(Controller controller)
 	{
 		if (!isLoaded()) return glm::mat4{ 1 };
@@ -357,7 +357,7 @@ namespace VR
 	{
 		return *(glm::vec4*)getController4D(controller)[4];
 	}
-	
+
 	// m/s
 	inline glm::vec3 getHeadVel()
 	{
@@ -378,7 +378,7 @@ namespace VR
 		func(result);
 		return result;
 	}
-	
+
 	// m/s
 	inline glm::vec3 getControllerVel(Controller controller)
 	{
@@ -399,7 +399,7 @@ namespace VR
 		func(controller, result);
 		return result;
 	}
-	
+
 	// rad/s
 	inline glm::vec3 getHeadAngVel()
 	{
@@ -420,7 +420,7 @@ namespace VR
 		func(result);
 		return result;
 	}
-	
+
 	// rad/s
 	inline glm::vec3 getControllerAngVel(Controller controller)
 	{
@@ -441,7 +441,7 @@ namespace VR
 		func(controller, result);
 		return result;
 	}
-	
+
 	inline glm::vec3 getHeadLeft()
 	{
 		return getHead()[0];
@@ -451,7 +451,7 @@ namespace VR
 	{
 		return *(glm::vec4*)getHead4D()[0];
 	}
-	
+
 	inline glm::vec3 getControllerLeft(Controller controller)
 	{
 		return getController(controller)[0];
@@ -461,7 +461,7 @@ namespace VR
 	{
 		return *(glm::vec4*)getController4D(controller)[0];
 	}
-	
+
 	inline glm::vec3 getHeadUp()
 	{
 		return getHead()[1];
@@ -471,7 +471,7 @@ namespace VR
 	{
 		return *(glm::vec4*)getHead4D()[1];
 	}
-	
+
 	inline glm::vec3 getControllerUp(Controller controller)
 	{
 		return getController(controller)[1];
@@ -481,7 +481,7 @@ namespace VR
 	{
 		return *(glm::vec4*)getController4D(controller)[1];
 	}
-	
+
 	inline glm::vec3 getHeadForward()
 	{
 		return getHead()[2];
@@ -491,7 +491,7 @@ namespace VR
 	{
 		return *(glm::vec4*)getHead4D()[2];
 	}
-	
+
 	inline glm::vec3 getControllerForward(Controller controller)
 	{
 		return getController(controller)[2];
@@ -607,20 +607,20 @@ namespace VR
 		return func(s, vrRender, uiRender);
 	}
 
-	inline m4::Mat5 getEntityPlayerHandMat(const fdm::EntityPlayer* entity, Controller controller)
+	inline fdm::m4::Mat5 getEntityPlayerHandMat(const fdm::EntityPlayer* entity, Controller controller)
 	{
 		if (!isEntityPlayerInVR(entity)) return { 1 };
-		m4::Mat5 result{ 1 };
-		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, Controller, m4::Mat5&)>
+		fdm::m4::Mat5 result{ 1 };
+		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, Controller, fdm::m4::Mat5&)>
 			(fdm::getModFuncPointer(id, "getEntityPlayerHandMat"));
 		func(entity, controller, result);
 		return result;
 	}
-	inline m4::Mat5 getEntityPlayerHeadMat(const fdm::EntityPlayer* entity)
+	inline fdm::m4::Mat5 getEntityPlayerHeadMat(const fdm::EntityPlayer* entity)
 	{
 		if (!isEntityPlayerInVR(entity)) return { 1 };
-		m4::Mat5 result{ 1 };
-		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, m4::Mat5&)>
+		fdm::m4::Mat5 result{ 1 };
+		static auto func = reinterpret_cast<void(__stdcall*)(const fdm::EntityPlayer*, fdm::m4::Mat5&)>
 			(fdm::getModFuncPointer(id, "getEntityPlayerHeadMat"));
 		func(entity, result);
 		return result;
