@@ -1752,6 +1752,7 @@ $hook(void, EntityPlayer, render, const World* world, const m4::Mat5& MV, bool g
 				Mat5 MVItemR = MV3;
 				MVItemR = MVItemR * handR;
 				adjustItemMat(MVItemR, itemR, 1, true);
+				MVItemR.scale(glm::vec4{ entityPlayerData[self].heightRatio });
 
 				itemR->renderEntity(MVItemR, itemR->getName() != "Compass" && itemR->getName() != "4D Glasses", { 0, 1, 0, 0 });
 			}
@@ -1765,6 +1766,7 @@ $hook(void, EntityPlayer, render, const World* world, const m4::Mat5& MV, bool g
 				Mat5 MVItemL = MV3;
 				MVItemL = MVItemL * handL;
 				adjustItemMat(MVItemL, itemL, 0, true);
+				MVItemL.scale(glm::vec4{ entityPlayerData[self].heightRatio });
 
 				itemL->renderEntity(MVItemL, itemL->getName() != "Compass" && itemL->getName() != "4D Glasses", {0, 1, 0, 0});
 			}
