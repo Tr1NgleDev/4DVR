@@ -267,7 +267,7 @@ $hook(void, StateGame, render, StateManager& s)
 		self->renderFramebuffer.texRenderer.texture = &pcFramebuffer.tex2D;
 		self->renderFramebuffer.setShader(ShaderManager::get("postShader"));
 		if (fdm::isModLoaded("!tr1ngledev.fxlib"))
-			self->renderFramebuffer.tex2D.target = FXLIB_FB_MAGIC_NUMBER; // fxlib mod support
+			self->renderFramebuffer.tex2D.target = FXLIB_FB_MAGIC_NUMBER; // fxlib support
 		self->renderFramebuffer.init(w, h, false);
 	}
 
