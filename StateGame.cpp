@@ -245,6 +245,8 @@ $hook(void, StateGame, update, StateManager& s, double dt)
 static Framebuffer pcFramebuffer{ };
 FontRenderer3D font3D;
 
+inline static constexpr uint32_t FXLIB_FB_MAGIC_NUMBER = 1529352098;
+
 $hook(void, StateGame, render, StateManager& s)
 {
 	renderingUI = false;
@@ -256,16 +258,16 @@ $hook(void, StateGame, render, StateManager& s)
 	{
 		pcFramebuffer.texRenderer.texture = &pcFramebuffer.tex2D;
 		pcFramebuffer.setShader(ShaderManager::get("postShader"));
-		if (fdm::isModLoaded("tr1ngledev.anti-aliasing"))
-			pcFramebuffer.tex2D.target = 1456982369; // anti-aliasing mod support
+		if (fdm::isModLoaded("!tr1ngledev.fxlib"))
+			pcFramebuffer.tex2D.target = FXLIB_FB_MAGIC_NUMBER; // fxlib support
 		pcFramebuffer.init(w, h, false);
 	}
 	if (self->renderFramebuffer.tex2D.width != eyeW || self->renderFramebuffer.tex2D.height != eyeH)
 	{
 		self->renderFramebuffer.texRenderer.texture = &pcFramebuffer.tex2D;
 		self->renderFramebuffer.setShader(ShaderManager::get("postShader"));
-		if (fdm::isModLoaded("tr1ngledev.anti-aliasing"))
-			self->renderFramebuffer.tex2D.target = 1456982369; // anti-aliasing mod support
+		if (fdm::isModLoaded("!tr1ngledev.fxlib"))
+			self->renderFramebuffer.tex2D.target = FXLIB_FB_MAGIC_NUMBER; // fxlib mod support
 		self->renderFramebuffer.init(w, h, false);
 	}
 
